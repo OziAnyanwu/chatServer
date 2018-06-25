@@ -23,8 +23,9 @@ class Server:
                 for c in self.connections:
                     c.send(bytes(data))
                 if not data:
-                    #connections.remove(connexion)
-                    #connexion.close()
+                    print(str(cl_addr[0]) + ':' + str(cl_addr[1]), "disconnnected")
+                    self.connections.remove(connexion)
+                    connexion.close()
                     break
     def run(self):
         while True:
@@ -33,7 +34,7 @@ class Server:
                 cThread.daemon = True #lets program exit even if a thread is running
                 cThread.start()
                 self.connections.append(connexion)
-                print(self.connections)
+                print(str(cl_addr[0]) + ':' + str(cl_addr[1]), "connnected")
 class Client:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
@@ -53,7 +54,7 @@ class Client:
                         data = self.sock.recv(1024)
                         if not data:
                             break
-                        print(data)
+                        print(string(data,'utf-8'))
 
 
 #are we server or client?
