@@ -21,8 +21,8 @@ class Server:
             while True:
                 data = connexion.recv(1024)
                 print(str(data,'utf-8'))
-                for c in self.connections:
-                    c.send(bytes(data))
+                #for c in self.connections:
+                    #c.send(bytes(data))
                 if not data:
                     print(str(cl_addr[0]) + ':' + str(cl_addr[1]), "disconnnected")
                     self.connections.remove(connexion)
