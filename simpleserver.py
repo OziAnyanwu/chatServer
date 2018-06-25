@@ -39,7 +39,7 @@ class Client:
         
         def sendMsg(self):
             while True:
-                print("Send a good vibe: ")
+              #print("Send a good vibe: ")
                 self.sock.send(bytes(input(""),'utf-8')) #WHERE THE FILTERING HAPPENS
         
         def __init__(self, addr):
