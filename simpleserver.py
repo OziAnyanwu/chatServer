@@ -20,6 +20,7 @@ class Server:
             #global connections
             while True:
                 data = connexion.recv(1024)
+                print(str(data,'utf-8'))
                 for c in self.connections:
                     c.send(bytes(data))
                 if not data:
