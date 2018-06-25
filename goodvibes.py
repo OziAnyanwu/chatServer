@@ -40,7 +40,7 @@ class Server:
             #global connections
             while True:
                 data = connexion.recv(1024)
-                print(str(data,'utf-8'))
+                print("Good Viber: " + str(data,'utf-8'))
                 #for c in self.connections:
                     #c.send(bytes(data))
                 if not data:
@@ -82,7 +82,7 @@ class Client:
                         data = self.sock.recv(1024)
                         if not data:
                             break
-                        print(str(data,'utf-8'))
+                        print("Good Viber: " + str(data,'utf-8'))
 
 
 print("======Welcome to Good Vibes Only: A Live Chat for Positivity!======")
