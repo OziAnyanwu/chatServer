@@ -1,3 +1,6 @@
+#original guide by howCode. Link: https://www.youtube.com/watch?v=D0SLpD7JvZI
+#I modified his code to work for my demo. Works like a charm!
+
 import socket
 import threading #Threading allows server to handle multiple connections at once
 import sys
@@ -17,7 +20,7 @@ class Server:
 
     def t2Handler(self,connexion):
         while True:
-            connexion.send(bytes(input("User1: "),'utf-8'))
+            connexion.send(bytes(input(""),'utf-8'))
         
     def tHandler(self, connexion, cl_addr):
             #global connections
@@ -47,7 +50,7 @@ class Client:
         
         def sendMsg(self):
             while True:
-                self.sock.send(bytes(input("User2: "),'utf-8')) #WHERE THE FILTERING HAPPENS
+                self.sock.send(bytes(input(""),'utf-8')) #WHERE THE FILTERING HAPPENS
         
         def __init__(self, addr):
                 self.sock.connect((addr, 10000))
