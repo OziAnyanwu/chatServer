@@ -37,7 +37,7 @@ class Server:
                 cThread = threading.Thread(target=self.tHandler, args=(connexion,cl_addr))
                 cThread.daemon = True #lets program exit even if a thread is running
                 cThread.start()
-                i2Thread = threading.Thread(target=self.t2Handler, args=(connexion))
+                i2Thread = threading.Thread(target=self.t2Handler, args=(connexion,))
                 i2Thread.daemon = True
                 i2Thread.start()
                 self.connections.append(connexion)
