@@ -5,6 +5,17 @@ import socket
 import threading #Threading allows server to handle multiple connections at once
 import sys
 
+negatives = ["not", "ugly", "hate", "suck", "lame", "fuck", "bitch", "bad", "awful", "dumb", "cant", "can't"]
+
+#returns True if the given message is negative. False otherwise
+def isNegative (s):
+    global negatives
+    check = s.lower()
+    for word in negatives:
+        if (word in check):
+            return True
+    return False
+
 class Server:
 
     #set the socket to the socket method in socket lib
@@ -20,8 +31,11 @@ class Server:
 
     def t2Handler(self,connexion):
         while True:
-            connexion.send(bytes(input(""),'utf-8'))
-        
+            msg = input("")
+            if(not isNegative(msg)):
+                connexion.send(bytes(msg,'utf-8'))
+            else:
+                print("The message you tried to send contains some negative vibes. >:(")
     def tHandler(self, connexion, cl_addr):
             #global connections
             while True:
@@ -51,7 +65,11 @@ class Client:
         
         def sendMsg(self):
             while True:
-                self.sock.send(bytes(input(""),'utf-8')) #WHERE THE FILTERING HAPPENS
+                msg = input("")
+                if(not isNegative(msg)):
+                    self.sock.send(bytes(msg,'utf-8')) #WHERE THE FILTERING HAPPENS
+                else:
+                    print("The message you tried to send contains some negative vibes. >:(")
         
         def __init__(self, addr):
                 self.sock.connect((addr, 10000))
