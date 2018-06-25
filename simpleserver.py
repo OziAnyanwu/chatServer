@@ -17,8 +17,7 @@ class Server:
 
     def t2Handler(self,connexion):
         while True:
-            print("User1:")
-            connexion.send(bytes(input(""),'utf-8'))
+            connexion.send(bytes(input("User1: "),'utf-8'))
         
     def tHandler(self, connexion, cl_addr):
             #global connections
@@ -48,8 +47,7 @@ class Client:
         
         def sendMsg(self):
             while True:
-                print("User2:")
-                self.sock.send(bytes(input(""),'utf-8')) #WHERE THE FILTERING HAPPENS
+                self.sock.send(bytes(input("User2: "),'utf-8')) #WHERE THE FILTERING HAPPENS
         
         def __init__(self, addr):
                 self.sock.connect((addr, 10000))
