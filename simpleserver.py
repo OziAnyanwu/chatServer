@@ -54,7 +54,7 @@ class Client:
                         data = self.sock.recv(1024)
                         if not data:
                             break
-                        print(string(data,'utf-8'))
+                        print(str(data,'utf-8'))
 
 
 #are we server or client?
