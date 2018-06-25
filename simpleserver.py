@@ -35,6 +35,7 @@ class Server:
                     connexion.close()
                     break
     def run(self):
+        print("Waiting for a Connection....")
         while True:
                 connexion, cl_addr = self.sock.accept() #returns connection and address
                 cThread = threading.Thread(target=self.tHandler, args=(connexion,cl_addr))
@@ -66,6 +67,7 @@ class Client:
                         print(str(data,'utf-8'))
 
 
+print("======Welcome to Good Vibes Only: A Live Chat for Positivity!======")
 #are we server or client?
 if (len(sys.argv) > 1):
     client = Client(sys.argv[1])
