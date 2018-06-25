@@ -57,7 +57,7 @@ class Client:
 
 #are we server or client?
 if (len(sys.argv) > 1):
-    client = Client(sys,argv[1])
-else: #we are the serer
+    client = Client(sys.argv[1])
+else: #we are the server
     server = Server()
     server.run()
